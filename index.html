@@ -1,191 +1,263 @@
-import React, { useState } from 'react';
-import { ShieldAlert, Recycle, Puzzle, Scissors, ArrowRight, ArrowDown, MoveRight } from 'lucide-react';
-
-export default function HunchedSocietyApp() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [email, setEmail] = useState('');
-  const [joined, setJoined] = useState(false);
-
-  const handleJoin = (e) => {
-    e.preventDefault();
-    if (email) setJoined(true);
-  };
-
-  return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-lime-400 selection:text-zinc-950">
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
-            <span className="text-lime-400">HUNCHED</span>
-            <span>SOCIETY</span>
-          </div>
-          
-          <div className="hidden md:flex gap-8 text-sm font-medium tracking-wide text-zinc-400">
-            <a href="#vision" className="hover:text-lime-400 transition-colors">VISION</a>
-            <a href="#modular" className="hover:text-lime-400 transition-colors">MODULAR</a>
-            <a href="#ethics" className="hover:text-lime-400 transition-colors">ETHICS</a>
-          </div>
-
-          <button className="hidden md:block px-6 py-2.5 bg-lime-400 text-zinc-950 font-bold text-sm hover:bg-lime-300 transition-colors rounded-sm uppercase tracking-wider">
-            Early Access
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          {/* Abstract geometric background simulating 3D lattice/SLS layers */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500 rounded-full mix-blend-screen filter blur-[128px] animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="w-full h-full bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
-          <div className="inline-block px-4 py-1.5 border border-lime-400/30 bg-lime-400/10 text-lime-400 text-xs font-bold tracking-widest rounded-full mb-8">
-            UK MICRO-FACTORY INITIATED
-          </div>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8">
-            Future <br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-300">
-              Footwear.
-            </span>
-          </h1>
-          <p className="max-w-2xl text-lg md:text-xl text-zinc-400 mb-12 font-light leading-relaxed">
-            Zero-drop comfort meets zero-exploitation manufacturing. We engineer 3D-printed, modular sneakers that don't take themselves too seriously, but take your footprint seriously.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-lime-400 text-zinc-950 font-black text-lg hover:bg-lime-300 transition-all rounded-sm uppercase tracking-wider flex items-center justify-center gap-2 group">
-              Join the Waitlist
-              <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Manifesto Section */}
-      <section id="vision" className="py-24 bg-zinc-900 border-y border-zinc-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-sm font-bold tracking-widest text-lime-400 mb-8 uppercase">The Manifesto</h2>
-          <blockquote className="text-3xl md:text-5xl font-medium leading-tight text-zinc-100 mb-12">
-            "To engineer the future of wearable design through localized digital manufacturing—rejecting the mass market to prioritize health, ethics, and radical style."
-          </blockquote>
-          <p className="text-xl text-zinc-400 font-light">
-            We merge anatomical barefoot science with advanced SLS and FGF printing, completely dismantling the traditional, high-impact shoe industry one step at a time.
-          </p>
-        </div>
-      </section>
-
-      {/* Core Pillars / Tech Specs */}
-      <section id="modular" className="py-32 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
-              Radically <br/> <span className="text-lime-400">Modular.</span>
-            </h2>
-            <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
-              Why throw away a whole shoe when only the sole is worn? Hunched Society sneakers are engineered with mechanical snap-fit joints. Swap uppers, replace outsoles, and customize your look in seconds.
-            </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunched Society</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons for the visuals -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-lime-400 selection:text-zinc-950">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
+                <span class="text-lime-400">HUNCHED</span>
+                <span>SOCIETY</span>
+            </div>
             
-            <div className="space-y-8">
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center rounded-lg border border-zinc-800 text-lime-400 shrink-0">
-                  <Puzzle className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Interchangeable Parts</h3>
-                  <p className="text-zinc-500">Midsoles and uppers lock together without toxic glues, allowing infinite customization.</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-zinc-900 flex items-center justify-center rounded-lg border border-zinc-800 text-lime-400 shrink-0">
-                  <ShieldAlert className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Anatomical Barefoot Design</h3>
-                  <p className="text-zinc-500">Zero-drop soles and a wide toe box support natural foot movement in the urban environment.</p>
-                </div>
-              </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-zinc-400">
+                <a href="#vision" class="hover:text-lime-400 transition-colors">VISION</a>
+                <a href="#modular" class="hover:text-lime-400 transition-colors">MODULAR</a>
+                <a href="#process" class="hover:text-lime-400 transition-colors">THE LAB</a>
+                <a href="#ethics" class="hover:text-lime-400 transition-colors">ETHICS</a>
             </div>
-          </div>
-          
-          {/* Mockup visual for the 3D printed modularity */}
-          <div className="relative h-[500px] w-full bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden group">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(163,230,53,0.1)_0,transparent_100%)]"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 transition-transform duration-700 group-hover:scale-105">
-               {/* Abstract representation of shoe parts separating */}
-               <div className="w-48 h-16 border-2 border-lime-400/50 rounded-t-3xl border-b-0 backdrop-blur-sm bg-lime-400/5 -translate-y-4"></div>
-               <div className="w-56 h-12 border-2 border-zinc-600 rounded-md backdrop-blur-sm bg-zinc-800/50"></div>
-               <div className="w-56 h-8 border-2 border-lime-400/50 rounded-b-xl border-t-0 backdrop-blur-sm bg-lime-400/5 translate-y-4"></div>
-               <div className="mt-8 text-xs font-mono text-zinc-500 tracking-widest uppercase">Exploded View // SLS TPU</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Ethics & Manufacturing */}
-      <section id="ethics" className="py-24 bg-zinc-900 border-y border-zinc-800 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-               <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-zinc-950 p-8 rounded-xl border border-zinc-800">
-                    <Recycle className="w-8 h-8 text-lime-400 mb-4" />
-                    <h4 className="font-bold mb-2">Circular Loop</h4>
-                    <p className="text-sm text-zinc-500">100% recyclable TPU powder. Send back worn soles to be ground down and reprinted.</p>
-                  </div>
-                  <div className="bg-zinc-950 p-8 rounded-xl border border-zinc-800">
-                    <Scissors className="w-8 h-8 text-lime-400 mb-4" />
-                    <h4 className="font-bold mb-2">Zero Sweatshops</h4>
-                    <p className="text-sm text-zinc-500">Manufactured entirely in our UK-based digital micro-factories.</p>
-                  </div>
-               </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
-                Print <span className="text-lime-400">Local.</span> <br/>
-                Wear <span className="text-lime-400">Global.</span>
-              </h2>
-              <p className="text-zinc-400 text-lg leading-relaxed">
-                By utilizing scalable fleets of SLS and FGF 3D printers, we eliminate the need for overseas shipping and toxic injection molding. We print on demand, meaning zero overstock and zero waste.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer / CTA */}
-      <footer className="pt-32 pb-12 px-6 max-w-xl mx-auto text-center">
-        <h2 className="text-3xl font-black uppercase tracking-tighter mb-4">Join the Society</h2>
-        <p className="text-zinc-400 mb-8">Be the first to know when our UK micro-factory drops the first batch of modular designs.</p>
-        
-        {!joined ? (
-          <form onSubmit={handleJoin} className="flex gap-2 max-w-md mx-auto">
-            <input 
-              type="email" 
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="ENTER YOUR EMAIL" 
-              className="flex-1 bg-zinc-900 border border-zinc-800 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-lime-400 transition-colors"
-            />
-            <button type="submit" className="bg-lime-400 text-zinc-950 font-bold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:bg-lime-300 transition-colors">
-              Submit
+            <button class="hidden md:block px-6 py-2.5 bg-lime-400 text-zinc-950 font-bold text-sm hover:bg-lime-300 transition-colors rounded-sm uppercase tracking-wider">
+                Early Access
             </button>
-          </form>
-        ) : (
-          <div className="bg-lime-400/10 border border-lime-400/30 text-lime-400 px-6 py-4 rounded-sm font-bold tracking-widest uppercase">
-            Welcome to the Society.
-          </div>
-        )}
-
-        <div className="mt-32 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600 font-mono">
-          <p>© 2026 HUNCHED SOCIETY. ALL RIGHTS RESERVED.</p>
-          <p>ENGINEERED IN MANCHESTER, UK</p>
         </div>
-      </footer>
-    </div>
-  );
-}
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <!-- Abstract geometric background simulating 3D lattice/SLS layers -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500 rounded-full mix-blend-screen filter blur-[128px] animate-pulse"></div>
+            <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-[128px] animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="w-full h-full bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+            <div class="inline-block px-4 py-1.5 border border-lime-400/30 bg-lime-400/10 text-lime-400 text-xs font-bold tracking-widest rounded-full mb-8">
+                UK MICRO-FACTORY INITIATED
+            </div>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-8">
+                Future <br class="hidden md:block"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-300">
+                    Footwear.
+                </span>
+            </h1>
+            <p class="max-w-2xl text-lg md:text-xl text-zinc-400 mb-12 font-light leading-relaxed">
+                Zero-drop comfort meets zero-exploitation manufacturing. We engineer 3D-printed, modular sneakers that don't take themselves too seriously, but take your footprint seriously.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="px-8 py-4 bg-lime-400 text-zinc-950 font-black text-lg hover:bg-lime-300 transition-all rounded-sm uppercase tracking-wider flex items-center justify-center gap-2 group">
+                    Join the Waitlist
+                    <i class="ph ph-arrow-right text-xl group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section id="vision" class="py-24 bg-zinc-900 border-y border-zinc-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-sm font-bold tracking-widest text-lime-400 mb-8 uppercase">The Manifesto</h2>
+            <blockquote class="text-3xl md:text-5xl font-medium leading-tight text-zinc-100 mb-12">
+                "To engineer the future of wearable design through localized digital manufacturing—rejecting the mass market to prioritize health, ethics, and radical style."
+            </blockquote>
+            <p class="text-xl text-zinc-400 font-light">
+                We merge anatomical barefoot science with advanced SLS and FGF printing, completely dismantling the traditional, high-impact shoe industry one step at a time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Pillars / Tech Specs -->
+    <section id="modular" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
+                    Radically <br/> <span class="text-lime-400">Modular.</span>
+                </h2>
+                <p class="text-zinc-400 text-lg mb-10 leading-relaxed">
+                    Why throw away a whole shoe when only the sole is worn? Hunched Society sneakers are engineered with mechanical snap-fit joints. Swap uppers, replace outsoles, and customize your look in seconds.
+                </p>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-zinc-900 flex items-center justify-center rounded-lg border border-zinc-800 text-lime-400 shrink-0">
+                            <i class="ph ph-puzzle-piece text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Interchangeable Parts</h3>
+                            <p class="text-zinc-500">Midsoles and uppers lock together without toxic glues, allowing infinite customization.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 items-start">
+                        <div class="w-12 h-12 bg-zinc-900 flex items-center justify-center rounded-lg border border-zinc-800 text-lime-400 shrink-0">
+                            <i class="ph ph-shield-warning text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Anatomical Barefoot Design</h3>
+                            <p class="text-zinc-500">Zero-drop soles and a wide toe box support natural foot movement in the urban environment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mockup visual for the 3D printed modularity -->
+            <div class="relative h-[500px] w-full bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden group">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(163,230,53,0.1)_0,transparent_100%)]"></div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center space-y-4 transition-transform duration-700 group-hover:scale-105">
+                     <!-- Abstract representation of shoe parts separating -->
+                     <div class="w-48 h-16 border-2 border-lime-400/50 rounded-t-3xl border-b-0 backdrop-blur-sm bg-lime-400/5 -translate-y-4"></div>
+                     <div class="w-56 h-12 border-2 border-zinc-600 rounded-md backdrop-blur-sm bg-zinc-800/50"></div>
+                     <div class="w-56 h-8 border-2 border-lime-400/50 rounded-b-xl border-t-0 backdrop-blur-sm bg-lime-400/5 translate-y-4"></div>
+                     <div class="mt-8 text-xs font-mono text-zinc-500 tracking-widest uppercase">Exploded View // SLS TPU</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Lab / Process Section -->
+    <section id="process" class="py-24 bg-zinc-950 relative overflow-hidden border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-16 md:flex justify-between items-end">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
+                        Inside <span class="text-lime-400">The Lab.</span>
+                    </h2>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        We are building this in public. Follow the iterative process of prototyping, failing, and refining the ultimate modular sneaker right from our UK workspace.
+                    </p>
+                </div>
+                <button class="mt-6 md:mt-0 px-6 py-3 border border-zinc-700 text-zinc-300 hover:text-lime-400 hover:border-lime-400 transition-colors rounded-sm text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+                    <i class="ph ph-camera text-lg"></i>
+                    Follow the Dev Log
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Process Card 1 -->
+                <div class="group relative h-80 bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMCAwaDF2NDBIMHptMCAzOWg0MHYxSDB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9zdmc+')] opacity-50 z-0"></div>
+                    <div class="absolute bottom-6 left-6 z-20">
+                        <i class="ph ph-pen-nib text-2xl text-lime-400 mb-3 block"></i>
+                        <h3 class="text-xl font-bold mb-1">01. Ideation & CAD</h3>
+                        <p class="text-sm text-zinc-500 font-mono">Generative design protocols.</p>
+                    </div>
+                </div>
+
+                <!-- Process Card 2 -->
+                <div class="group relative h-80 bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/50 to-transparent z-10"></div>
+                    <!-- Abstract 3D printing simulation -->
+                    <div class="absolute inset-0 flex flex-col justify-end p-8 z-0 opacity-20 group-hover:opacity-40 transition-opacity">
+                        <div class="w-full h-1 bg-lime-400 mb-1 animate-pulse"></div>
+                        <div class="w-3/4 h-1 bg-lime-400 mb-1"></div>
+                        <div class="w-1/2 h-1 bg-lime-400"></div>
+                    </div>
+                    <div class="absolute bottom-6 left-6 z-20">
+                        <i class="ph ph-stack text-2xl text-lime-400 mb-3 block"></i>
+                        <h3 class="text-xl font-bold mb-1">02. FDM Prototyping</h3>
+                        <p class="text-sm text-zinc-500 font-mono">Snapmaker IDEX testing.</p>
+                    </div>
+                </div>
+
+                <!-- Process Card 3 -->
+                <div class="group relative h-80 bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/50 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-zinc-800/20 z-0 group-hover:bg-lime-400/5 transition-colors"></div>
+                    <div class="absolute bottom-6 left-6 z-20">
+                        <i class="ph ph-recycle text-2xl text-lime-400 mb-3 block"></i>
+                        <h3 class="text-xl font-bold mb-1">03. SLS Sintering</h3>
+                        <p class="text-sm text-zinc-500 font-mono">Powder bed final output.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethics & Manufacturing -->
+    <section id="ethics" class="py-24 bg-zinc-900 border-y border-zinc-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                     <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-zinc-950 p-8 rounded-xl border border-zinc-800">
+                            <i class="ph ph-recycle text-3xl text-lime-400 mb-4 block"></i>
+                            <h4 class="font-bold mb-2">Circular Loop</h4>
+                            <p class="text-sm text-zinc-500">100% recyclable TPU powder. Send back worn soles to be ground down and reprinted.</p>
+                        </div>
+                        <div class="bg-zinc-950 p-8 rounded-xl border border-zinc-800">
+                            <i class="ph ph-scissors text-3xl text-lime-400 mb-4 block"></i>
+                            <h4 class="font-bold mb-2">Zero Sweatshops</h4>
+                            <p class="text-sm text-zinc-500">Manufactured entirely in our UK-based digital micro-factories.</p>
+                        </div>
+                     </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6">
+                        Print <span class="text-lime-400">Local.</span> <br/>
+                        Wear <span class="text-lime-400">Global.</span>
+                    </h2>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        By utilizing scalable fleets of SLS and FGF 3D printers, we eliminate the need for overseas shipping and toxic injection molding. We print on demand, meaning zero overstock and zero waste.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer class="pt-32 pb-12 px-6 max-w-xl mx-auto text-center">
+        <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Join the Society</h2>
+        <p class="text-zinc-400 mb-8">Be the first to know when our UK micro-factory drops the first batch of modular designs.</p>
+        
+        <div id="form-container">
+            <form id="join-form" class="flex gap-2 max-w-md mx-auto">
+                <input 
+                    type="email" 
+                    id="email-input"
+                    required
+                    placeholder="ENTER YOUR EMAIL" 
+                    class="flex-1 bg-zinc-900 border border-zinc-800 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-lime-400 transition-colors"
+                />
+                <button type="submit" class="bg-lime-400 text-zinc-950 font-bold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:bg-lime-300 transition-colors">
+                    Submit
+                </button>
+            </form>
+        </div>
+        
+        <!-- Hidden by default, shown after form submission -->
+        <div id="success-message" class="hidden bg-lime-400/10 border border-lime-400/30 text-lime-400 px-6 py-4 rounded-sm font-bold tracking-widest uppercase">
+            Welcome to the Society.
+        </div>
+
+        <div class="mt-32 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600 font-mono">
+            <p>© 2026 HUNCHED SOCIETY. ALL RIGHTS RESERVED.</p>
+            <p>ENGINEERED IN MANCHESTER, UK</p>
+        </div>
+    </footer>
+
+    <!-- Script to handle the form submission -->
+    <script>
+        document.getElementById('join-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page refresh
+            const email = document.getElementById('email-input').value;
+            
+            if (email) {
+                // Hide the form and show the success message
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
