@@ -6,16 +6,19 @@
     <title>Hunched Society | DROP 001</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        .brutalist-font { font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 1px; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .heading-font { font-family: 'Outfit', sans-serif; letter-spacing: 1px; }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
 <body class="min-h-screen bg-black text-[#d4d4d8] selection:bg-[#d946ef] selection:text-black">
     
     <nav class="fixed w-full z-50 top-0 bg-black/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between border-b border-[#d946ef]/50">
-            <div class="text-2xl brutalist-font uppercase flex items-center gap-2">
+            <div class="text-2xl heading-font font-black uppercase flex items-center gap-2">
                 <span class="text-[#d946ef]">HUNCHED</span>
                 <span class="text-white">SOCIETY</span>
             </div>
@@ -32,20 +35,17 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d946ef] rounded-full mix-blend-screen filter blur-[200px] opacity-30"></div>
 
         <div class="relative z-10 text-center w-full max-w-4xl">
-            <h2 class="text-[#d946ef] font-bold tracking-[0.3em] uppercase mb-4">Classified // Limited Run</h2>
+            <h2 class="text-[#d946ef] font-bold tracking-[0.3em] uppercase mb-4 heading-font">Classified // Limited Run</h2>
             
-            <h1 class="text-[12vw] md:text-[150px] brutalist-font text-white leading-none uppercase mb-2">
+            <h1 class="text-[12vw] md:text-[150px] heading-font font-black text-white leading-none uppercase mb-2">
                 DROP <span class="text-[#d946ef]">001</span>
             </h1>
             
-            <p class="text-2xl md:text-3xl text-white mb-16 brutalist-font">
+            <p class="text-2xl md:text-3xl text-white mb-16 heading-font font-bold">
                 50 PAIRS. ZERO RESTOCKS.
             </p>
 
-            <div class="flex justify-center gap-4 md:gap-8 mb-16 brutalist-font text-4xl md:text-6xl text-white">
-                <div class="flex flex-col items-center">
-                    <span id="days">00</span>
-                    <span class="text-xs text-[#d946ef] tracking-widest mt-2 font-sans font-bold">DAYS</span>
+            <div class="flex justify-center gap-4 md:gap-8 mb-16 heading-font font-black text-4xl md:text-6xl text-white">
                 </div>
                 <span>:</span>
                 <div class="flex flex-col items-center">
@@ -67,7 +67,7 @@
             <!-- Waitlist Form -->
             <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
                 <input type="email" placeholder="SECURE YOUR SPOT [EMAIL]" class="flex-1 bg-zinc-900 border-2 border-zinc-800 focus:border-[#d946ef] rounded-none px-6 py-4 text-white uppercase tracking-widest outline-none font-bold">
-                <button type="button" class="bg-[#d946ef] text-black brutalist-font text-2xl px-12 py-4 hover:bg-white transition-colors">
+                <button type="button" class="bg-[#d946ef] text-black heading-font font-black text-2xl px-12 py-4 hover:bg-white transition-colors">
                     ENTER
                 </button>
             </form>
