@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunched Society | The Shoe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        h1, h2, h3, .heading-font { font-family: 'Space Grotesk', sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-[#4d533c] text-[#e8e6e1] selection:bg-[#c2410c] selection:text-[#e8e6e1]">
+    
+    <nav class="fixed w-full z-50 top-0 border-b border-[#c2410c]/30 bg-[#4d533c]/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tighter uppercase flex items-center gap-2 heading-font">
+                <span class="text-[#c2410c]">HUNCHED</span>
+                <span>SOCIETY</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-[#e8e6e1]/70">
+                <a href="index.html" class="hover:text-[#c2410c] transition-colors">THE LAB (CYBER)</a>
+                <a href="product.html" class="text-[#c2410c] transition-colors">THE SHOE (EARTH)</a>
+                <a href="launch.html" class="hover:text-[#c2410c] transition-colors">DROP 001 (HYPER)</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <div class="space-y-6">
+            <div class="aspect-square bg-[#3d432c] rounded-2xl border border-[#c2410c]/20 flex items-center justify-center p-12 relative overflow-hidden">
+                <div class="w-full h-32 bg-[#c2410c] rounded-[100px] rounded-bl-none shadow-2xl transform -rotate-6"></div>
+                <div class="absolute top-4 left-4 text-xs font-mono text-[#e8e6e1]/50">MATTE TERRACOTTA / OLIVE</div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="aspect-square bg-[#3d432c] rounded-2xl flex flex-col items-center justify-center text-center p-6 border border-[#c2410c]/20">
+                    <i class="ph ph-dots-nine text-4xl text-[#c2410c] mb-2"></i>
+                    <span class="text-sm font-bold uppercase heading-font">Snap-Fit Matrix</span>
+                </div>
+                <div class="aspect-square bg-[#3d432c] rounded-2xl flex flex-col items-center justify-center text-center p-6 border border-[#c2410c]/20">
+                    <i class="ph ph-footprints text-4xl text-[#c2410c] mb-2"></i>
+                    <span class="text-sm font-bold uppercase heading-font">Zero Drop Base</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col justify-center">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-4">
+                The Core <br/> <span class="text-[#c2410c]">Module.</span>
+            </h1>
+            <p class="text-xl text-[#e8e6e1]/80 mb-8 leading-relaxed font-light">
+                Biophilic barefoot geometry grounded in tactile, earth-toned TPU. A wide toe-box allows natural splay, while the zero-drop sole reconnects you with the ground.
+            </p>
+            
+            <div class="border-t border-b border-[#e8e6e1]/20 py-6 mb-8 space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold heading-font uppercase">Material</span>
+                    <span class="text-[#e8e6e1]/70">Dye-Infused SLS TPU</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold heading-font uppercase">Assembly</span>
+                    <span class="text-[#e8e6e1]/70">Mechanical Stud-and-Hole</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="font-bold heading-font uppercase">Origin</span>
+                    <span class="text-[#e8e6e1]/70">Manchester, UK</span>
+                </div>
+            </div>
+
+            <button class="w-full bg-[#c2410c] text-[#e8e6e1] py-4 text-xl font-bold heading-font uppercase tracking-widest hover:bg-[#a1350a] transition-colors rounded-lg shadow-lg">
+                Pre-Order Module
+            </button>
+        </div>
+    </section>
+</body>
+</html>
