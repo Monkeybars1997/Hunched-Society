@@ -1,4 +1,36 @@
-<!-- ... existing code ... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunched Society | DROP 001</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- New Font: Outfit & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Unified typography */
+        h1, h2, h3, .heading-font { font-family: 'Outfit', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; }
+    </style>
+</head>
+<body class="min-h-screen text-zinc-50 selection:bg-[#d946ef] selection:text-black overflow-x-hidden">
+    
+    <nav class="fixed w-full z-50 top-0 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tighter uppercase flex items-center gap-2 heading-font">
+                <span class="text-[#d946ef]">HUNCHED</span>
+                <span>SOCIETY</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-zinc-400">
+                <a href="index.html" class="hover:text-[#d946ef] transition-colors">THE LAB (CYBER)</a>
+                <a href="product.html" class="hover:text-[#d946ef] transition-colors">THE SHOE (EARTH)</a>
+                <a href="launch.html" class="text-[#d946ef] transition-colors">DROP 001 (HYPER)</a>
+            </div>
+        </div>
     </nav>
 
     <section class="min-h-screen flex flex-col items-center justify-center px-6 pt-20 relative">
@@ -50,9 +82,34 @@
     </section>
 
     <script>
-<!-- ... existing code ... -->
-```
+        // Set the date we're counting down to (e.g., 14 days from now)
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 14);
+        const targetTime = countDownDate.getTime();
 
-Replace that middle section in your `launch.html` file, save it, and refresh your browser. It should load lightning fast now, and you'll see the full timer (Days, Hours, Mins, Secs) ticking down perfectly! 
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetTime - now;
 
-Let me know if you notice the speed difference!
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Pad with zero if needed
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("mins").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("secs").innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("mins").innerHTML = "00";
+                document.getElementById("secs").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
