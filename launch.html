@@ -82,34 +82,35 @@
     </section>
 
     <script>
-        // Set the date we're counting down to (e.g., 14 days from now)
-        const countDownDate = new Date();
-        countDownDate.setDate(countDownDate.getDate() + 14);
-        const targetTime = countDownDate.getTime();
+  // Set the exact date and time for the Hunched Society drop
+  const countDownDate = new Date("Aug 30, 2026 00:00:00").getTime();
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetTime - now;
+  // Update the countdown every 1 second
+  const timerInterval = setInterval(function() {
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Get today's date and time
+    const now = new Date().getTime();
 
-            // Pad with zero if needed
-            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-            document.getElementById("mins").innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById("secs").innerHTML = seconds.toString().padStart(2, '0');
+    // Find the distance between now and the countdown date
+    const distance = countDownDate - now;
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("mins").innerHTML = "00";
-                document.getElementById("secs").innerHTML = "00";
-            }
-        }, 1000);
-    </script>
+    // Time calculations for days, hours, minutes, and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60 * 60)) / 1000);
+
+    // Display the result in the element with id="countdown"
+    // (Make sure your HTML text element has id="countdown")
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h " 
+    + minutes + "m " + seconds + "s ";
+
+    // If the countdown is finished, display a message
+    if (distance < 0) {
+      clearInterval(timerInterval);
+      document.getElementById("countdown").innerHTML = "THE DROP IS LIVE";
+    }
+  }, 1000);
+</script>
 </body>
 </html>
