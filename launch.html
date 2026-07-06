@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- New Font: Outfit & Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         /* Unified typography */
@@ -34,7 +33,6 @@
     </nav>
 
     <section class="min-h-screen flex flex-col items-center justify-center px-6 pt-20 relative">
-        <!-- FIXED: Replaced expensive blur with a performance-friendly radial gradient -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.25)_0%,transparent_70%)] rounded-full mix-blend-screen pointer-events-none"></div>
 
         <div class="relative z-10 text-center w-full max-w-4xl">
@@ -48,7 +46,6 @@
                 50 PAIRS. ZERO RESTOCKS.
             </p>
 
-            <!-- FIXED: Restored the 'Days' element to stop the Javascript error -->
             <div class="flex justify-center items-start gap-3 md:gap-6 mb-16 heading-font font-black text-4xl md:text-6xl text-white">
                 <div class="flex flex-col items-center">
                     <span id="days">00</span>
@@ -71,7 +68,6 @@
                 </div>
             </div>
 
-            <!-- Waitlist Form -->
             <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
                 <input type="email" placeholder="SECURE YOUR SPOT [EMAIL]" class="flex-1 bg-zinc-900 border-2 border-zinc-800 focus:border-[#d946ef] rounded-none px-6 py-4 text-white uppercase tracking-widest outline-none font-bold">
                 <button type="button" class="bg-[#d946ef] text-black heading-font font-black text-2xl px-12 py-4 hover:bg-white transition-colors">
@@ -82,35 +78,41 @@
     </section>
 
     <script>
-  // Set the exact date and time for the Hunched Society drop
-  const countDownDate = new Date("Aug 30, 2026 00:00:00").getTime();
+      // Set the exact date and time for the Hunched Society drop
+      const countDownDate = new Date("Aug 30, 2026 00:00:00").getTime();
 
-  // Update the countdown every 1 second
-  const timerInterval = setInterval(function() {
+      // Update the countdown every 1 second
+      const timerInterval = setInterval(function() {
 
-    // Get today's date and time
-    const now = new Date().getTime();
+        // Get today's date and time
+        const now = new Date().getTime();
 
-    // Find the distance between now and the countdown date
-    const distance = countDownDate - now;
+        // Find the distance between now and the countdown date
+        const distance = countDownDate - now;
 
-    // Time calculations for days, hours, minutes, and seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60 * 60)) / 1000);
+        // If the countdown is finished, lock at zero and stop the timer
+        if (distance < 0) {
+          clearInterval(timerInterval);
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("mins").innerHTML = "00";
+          document.getElementById("secs").innerHTML = "00";
+          return;
+        }
 
-    // Display the result in the element with id="countdown"
-    // (Make sure your HTML text element has id="countdown")
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h " 
-    + minutes + "m " + seconds + "s ";
+        // Time calculations for days, hours, minutes, and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60 * 60)) / 1000);
 
-    // If the countdown is finished, display a message
-    if (distance < 0) {
-      clearInterval(timerInterval);
-      document.getElementById("countdown").innerHTML = "THE DROP IS LIVE";
-    }
-  }, 1000);
-</script>
+        // Display the result in the corresponding elements, padding with zeros where necessary
+        document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+        document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+        document.getElementById("mins").innerHTML = String(minutes).padStart(2, '0');
+        document.getElementById("secs").innerHTML = String(seconds).padStart(2, '0');
+
+      }, 1000);
+    </script>
 </body>
 </html>
